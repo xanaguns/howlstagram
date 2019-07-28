@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                     .child(uid)
                     .putFile(imageUri!!)
                     .addOnCompleteListener { task ->
-                        val url = task.result.downloadUrl.toString()
+                        val url = task.result?.downloadUrl.toString()
                         val map = HashMap<String, Any>()
                         map["image"] = url
                         FirebaseFirestore.getInstance().collection("profileImages").document(uid).set(map)

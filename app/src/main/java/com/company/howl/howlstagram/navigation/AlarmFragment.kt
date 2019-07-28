@@ -70,7 +70,7 @@ class AlarmFragment : Fragment() {
                     .document(alarmDTOList[position].uid!!).get().addOnCompleteListener {
                         task ->
                         if(task.isSuccessful){
-                            val url = task.result["image"]
+                            val url = task.result!!["image"]
                             Glide.with(activity)
                                     .load(url)
                                     .apply(RequestOptions().circleCrop())

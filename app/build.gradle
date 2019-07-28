@@ -13,6 +13,10 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
 
+        // proguard 적용하면서 multiDex 사용하지 않음
+        // 아래 에러 때문에 추가함
+        // Caused by: com.android.tools.r8.utils.AbortException: Error: Cannot fit requested classes in a single dex file (# methods: 69440 > 65536)
+        multiDexEnabled true
     }
     buildTypes {
         release {
